@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="kr.smhrd.mapper.SparkingMapper">
+
+<!-- <select id="login" resultType="kr.smhrd.entity.Member">
+	select memId, memPw from PMember where memId=#{memId} and memPw=#{memPw}
+
+</select>
+ -->
+
+<insert id="join" parameterType="kr.smhrd.entity.Member">
+	INSERT INTO PMember (memId,memPw,apt_dong,apt_hnum,p_intime,p_outtime,apt_num)
+	VALUES (#{memId},#{memPw},#{apt_dong},#{apt_hnum},to_date(#{p_intime},'HH24:MI'),to_date(#{p_outtime},'HH24:MI'),#{apt_num})
+</insert>
+
+<select id="loginList" resultType="kr.smhrd.entity.Member">
+	select memId,memPw,apt_dong,apt_hnum,
+	to_char(p_intime,'HH24:MI') as p_intime,to_char(p_outtime,'HH24:MI') as p_outtime,apt_num, car_num from PMember 
+</select>
+
+<!-- 회원정보 수정 -->
+<update id="modifyList" parameterType="kr.smhrd.entity.Member">
+
+	Update PMember set apt_dong = #{apt_dong}, apt_hnum = #{apt_hnum}, memPw = #{memPw}, car_num=#{car_num}, p_intime=#{p_intime}, p_outtime = #{p_outtime}
+	where memId=#{memId}
+
+</update>
+
+<update id="update" parameterType="kr.smhrd.entity.Member">
+
+	Update PMember set apt_dong = #{apt_dong}, apt_hnum = #{apt_hnum}, memPw = #{memPw}, car_num=#{car_num}, p_intime=#{p_intime}, p_outtime = #{p_outtime}
+	where memId=#{memId}
+
+</update>
+
+<!-- 아이디 중복 체크 -->
+
+<select id="idCheck" resultType = "int">
+	select count(*) form PMember where memId = #{memId}
+</select>
+
+<!-- 가입 승인 -->
+<update id="successId" parameterType="kr.smhrd.entity.Member">
+
+	update PMember set mem_grade = 1 where memId = #{memId}
+	
+</update>
+
+<!-- 가입 거절  -->
+<update id="failed" parameterType="kr.smhrd.entity.Member">
+	update PMember set mem_grade = 2 where memId = #{memId}
+</update>
+
+<!-- 회원 드롭.... -->
+<update id="dropUser" parameterType="kr.smhrd.entity.Member">
+	update PMember set mem_grage = 3 where memId = #{memId}
+</update>
+
+
+
+<select id="getMember" resultType="kr.smhrd.entity.Member">
+  select * from PMember where memId=#{memId}
+</select>
+
+
+<insert id="updateInfo" parameterType="kr.smhrd.entity.Member">
+	insert into Update_info(memPw, p_intime, p_outtime, car_num) 
+	values(#{memPw}, #{p_intime}, #{p_outtime}, #{car_num}) where memId = #{memId}
+</insert>
+
+<update id="memUpdate" parameterType="kr.smhrd.entity.Member">
+	update PMember set memPw = #{memPw}, p_intime = #{p_intime}, p_outtime = #{p_outtime}, car_num = #{car_num} 
+	where memId = #{memId}
+</update>
+
+<delete id="delUpInfo" parameterType="kr.smhrd.entity.Member">
+	delete from Update_Info where memId = #{memId}</delete>
+</mapper>
