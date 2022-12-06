@@ -197,6 +197,24 @@
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
     회원추가
   </button>
+  <br><br>
+  <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+  </nav>
 
   <!-- The Modal -->
   <div class="modal fade" id="myModal">
@@ -205,10 +223,10 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">sign in</h4>
+          <h4 class="modal-title">회원가입</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        
+         <form action="join" method = "post">
         <!-- Modal body -->
         <div class="modal-body">
           
@@ -225,62 +243,35 @@
           </div>
           <br><br>
           
-          <div>
-          *동 <input type="text"></input>
-          *호수 <input type="text"></input>
+           <div>
+          *동 <input type="text" class="form-control w-25" value="${mvo.apt_dong}" name="apt_dong" />
+          *호수 <input type="text" class="form-control w-25" value="${mvo.apt_hnum}" name="apt_hnum" />
           </div>
           
           <div class="p-2"><button type="button" class="btn-primary btn-sm">중복확인</button></div>
           
-          <div class="p-2">
-           *비밀번호<input type="password">
+            <div class="p-2">
+           *비밀번호<input type="password"value="${mvo.memPw}" name="memPw"/>
           </div>
           
           <div class="p-2">
-           *전화번호<input type="text">
+           *전화번호<input type="id" value = "${mvo.memId}" name="memId"/>
           </div>
           
           <div class="p-2">
-           *차량번호<input type="text">
+           *차량번호<input type="text" value = "${mvo.car_num}", name = "car_num">
            <button type="button" class="btn-primary">추가</button>
           </div>
           
           <div class="p-2">
           *선호 주차 시간
-            <form action="/action_page.php">
-              <select name="time" class="custom-select mb-3 w-25">
-                <option selected>time</option>
-                <option value="1">01</option>
-                <option value="2">02</option>
-                <option value="3">03</option>
-              </select>
-              
-              <select name="minute" class="custom-select mb-3 w-25">
-                <option selected>minute</option>
-                <option value="1">01</option>
-                <option value="2">02</option>
-                <option value="3">03</option>
-              </select>
-            </form>
+           <input type = "time" value = "${mvo.p_intime}" name = "p_intime"/>
           </div>
+          
           
           <div class="p-2">
           *선호 외출 시간
-            <form action="/action_page.php">
-              <select name="time" class="custom-select mb-3 w-25">
-                <option selected>time</option>
-                <option value="1">01</option>
-                <option value="2">02</option>
-                <option value="3">03</option>
-              </select>
-              
-              <select name="minute" class="custom-select mb-3 w-25">
-                <option selected>minute</option>
-                <option value="1">01</option>
-                <option value="2">02</option>
-                <option value="3">03</option>
-              </select>
-            </form>
+            <input type = "time" value = "${mvo.p_outtime}" name = "p_outtime"/>
           </div>
           
           
@@ -289,7 +280,7 @@
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">가입</button>
+          <button type="button" class="btn btn-primary" >가입</button>
         </div>
         
       </div>
@@ -328,6 +319,25 @@
          </tr>
         </tbody>
       </table>
+      <br><br>
+      <nav aria-label="Page navigation example">
+     <ul class="pagination">
+       <li class="page-item">
+         <a class="page-link" href="#" aria-label="Previous">
+           <span aria-hidden="true">&laquo;</span>
+         </a>
+       </li>
+       <li class="page-item"><a class="page-link" href="#">1</a></li>
+       <li class="page-item"><a class="page-link" href="#">2</a></li>
+       <li class="page-item"><a class="page-link" href="#">3</a></li>
+       <li class="page-item">
+         <a class="page-link" href="#" aria-label="Next">
+           <span aria-hidden="true">&raquo;</span>
+         </a>
+       </li>
+     </ul>
+     </nav>
+      
     </div>
     <div id="menu2" class="container tab-pane fade"><br>
       <table class=" table table-striped">
@@ -354,15 +364,30 @@
       </tr>
      </tbody>
      </table>
+     <br><br>
+     <nav aria-label="Page navigation example">
+     <ul class="pagination">
+       <li class="page-item">
+         <a class="page-link" href="#" aria-label="Previous">
+           <span aria-hidden="true">&laquo;</span>
+         </a>
+       </li>
+       <li class="page-item"><a class="page-link" href="#">1</a></li>
+       <li class="page-item"><a class="page-link" href="#">2</a></li>
+       <li class="page-item"><a class="page-link" href="#">3</a></li>
+       <li class="page-item">
+         <a class="page-link" href="#" aria-label="Next">
+           <span aria-hidden="true">&raquo;</span>
+         </a>
+       </li>
+     </ul>
+     </nav>
+     
     </div>
   </div>
   <div class="col-sm-1 col-md-1 col-lg-2"></div>
   
 </div>
-
-</body>
-</html>
-
 
 </body>
 </html>

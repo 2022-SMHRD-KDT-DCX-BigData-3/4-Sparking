@@ -51,10 +51,12 @@ public class HomeController {
 			session.setAttribute("mvo", mvo); // JSP -> ${empty mvo}
 			
 			session.setAttribute("message", "login");
+			return "resident";
 		}else {
 			session.setAttribute("message", "error");
+			return "Login";
 		}
-		return "resident"; // 
+		 // 
 		
 		//return "redirect:/";
 	}
@@ -155,5 +157,5 @@ public class HomeController {
 			 * }
 			 */
 		
-		  
+		 
 }

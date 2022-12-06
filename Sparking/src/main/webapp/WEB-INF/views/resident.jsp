@@ -62,7 +62,7 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">sign in</h4>
+          <h4 class="modal-title">회원정보 수정</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
          <form action="update" method="post">
@@ -94,7 +94,7 @@
           </div>
           
           <div class="p-2">
-           *전화번호<input type="text"/>
+           *전화번호<input type="id" value = "${mvo.memId}" name="memId"/>
           </div>
           
           *차량번호
