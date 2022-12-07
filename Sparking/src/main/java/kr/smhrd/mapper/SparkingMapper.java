@@ -14,8 +14,8 @@ import kr.smhrd.service.SparkingService;
 
 
 public interface SparkingMapper {
-	
-	   @Select("select * from PMember where memId=#{memId} and memPw=#{memPw}")
+		//로그인 mapper
+	   @Select("select * from Member where mem_Id=#{memId} and mem_Pw=#{memPw}")
 	   public Member login(Member vo);
 
 		/*

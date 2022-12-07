@@ -41,3 +41,5 @@ SELECT * FROM MEMBER;
 SELECT * FROM Update_Info
 
 Insert into Member (mem_Id, mem_Pw, APT_DONG, APT_HNUM, APT_NUM, Car_Num)  values ('admin', 'admin', 'default', 'default', 1, '1111223345');
+
+Insert into Member (mem_Id, mem_Pw, APT_DONG, APT_HNUM, APT_NUM, Car_Num)  values ('1234', '1234', '101', '112', 2, '1111223367');

@@ -7,7 +7,9 @@
 
 </select>
  -->
-
+ 
+ <!-- 로그인 mapper는 Sparking Service에 어노테이션으로 작성해둠 -->
+	
 <insert id="join" parameterType="kr.smhrd.entity.Member">
 	INSERT INTO Member (mem_Id,mem_Pw,apt_dong,apt_hnum,p_intime,p_outtime,apt_num)
 	VALUES (#{memId},#{memPw},#{apt_dong},#{apt_hnum},to_date(#{p_intime},'HH24:MI'),to_date(#{p_outtime},'HH24:MI'),#{apt_num})
@@ -21,7 +23,7 @@
 <!-- 회원정보 수정 -->
 <update id="modifyList" parameterType="kr.smhrd.entity.Member">
 
-	Update Member set apt_dong = #{apt_dong}, apt_hnum = #{apt_hnum}, memPw = #{memPw}, car_num=#{car_num}, p_intime=#{p_intime}, p_outtime = #{p_outtime}
+	Update Member set apt_dong = #{apt_dong}, apt_hnum = #{apt_hnum}, mem_Pw = #{memPw}, car_num=#{car_num}, p_intime=#{p_intime}, p_outtime = #{p_outtime}
 	where mem_Id=#{memId}
 
 </update>
@@ -65,7 +67,7 @@
 
 <insert id="updateInfo" parameterType="kr.smhrd.entity.Member">
 	insert into Update_info(mem_Pw, p_intime, p_outtime, car_num) 
-	values(#{memPw}, #{p_intime}, #{p_outtime}, #{car_num}) where mem_Id = #{memId}
+	values(#{memPw}, #{p_intime}, #{p_outtime}, #{car_num}) where memId = #{mem_Id}
 </insert>
 
 <update id="memUpdate" parameterType="kr.smhrd.entity.Member">
