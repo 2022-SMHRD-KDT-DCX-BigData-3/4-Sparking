@@ -49,7 +49,7 @@ public class HomeController {
 		Member mvo = sparkingService.login(vo);
 		if (mvo != null) { // 로그인 성공 => 객체 바인딩(HttpSession)
 			session.setAttribute("mvo", mvo); // JSP -> ${empty mvo}
-			
+			System.out.println(mvo);
 			session.setAttribute("message", "login");
 			return "resident";
 		}else {
@@ -95,7 +95,7 @@ public class HomeController {
 	@GetMapping("/resident") // 입주민 로그인 성공 후 바로 입주민 페이지로 접속
 	public String resident(HttpSession session , Model model) {
 		Member vo = (Member) session.getAttribute("mvo");
-		Member mvo = sparkingService.getMember(vo.getMemId());
+		Member mvo = sparkingService.getMember(vo.getMem_Id());
 		session.setAttribute("mvo", mvo);
 		return "resident";
 	}
@@ -103,6 +103,13 @@ public class HomeController {
 	@GetMapping("/infoList") // 새로고침 하여 회원정보 등록한 입주민들을 화면 변화 없이 업데이트
 	public @ResponseBody List<Member> infoList()         {
 		List<Member> list=sparkingService.loginList();
+		//model.addAttribute("list", list);
+		return list;
+	}
+	
+	@GetMapping("/updateInfo") // 새로고침 하여 회원정보 등록한 입주민들을 화면 변화 없이 업데이트
+	public @ResponseBody List<Member> userInfoList()         {
+		List<Member> list=sparkingService.userInfoList();
 		//model.addAttribute("list", list);
 		return list;
 	}
@@ -145,10 +152,11 @@ public class HomeController {
 			  return result;
 		  }
 	
+	// 회원정보 수정 요청
 		 @RequestMapping("/update")
 		 public String update(Member vo) {
 			 System.out.println(vo);
-			 sparkingService.update(vo);
+			 sparkingService.updateInfo(vo);
 			 return "redirect:/resident";
 		 }
 			/*
@@ -157,5 +165,11 @@ public class HomeController {
 			 * }
 			 */
 		
-		 
+			@GetMapping("/yesInfo") // 관리자 로그인 성공 후 관리자 페이지 클릭 시 관리자 페이지로 접속
+			public String yesInfo(String mem_Id) {
+				Member vo=sparkingService.yesInfo(mem_Id);
+				sparkingService.yesUpdateInfo(vo);
+				sparkingService.yesDeleteInfo(mem_Id);
+				return "admin";			
+			}
 }

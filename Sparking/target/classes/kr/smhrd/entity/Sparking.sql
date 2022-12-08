@@ -38,7 +38,7 @@ select memId,memPw,apt_dong,apt_hnum,to_char(p_intime,'HH24:MI'),to_char(p_outti
 
 SELECT * FROM MEMBER;
 
-SELECT * FROM Update_Info
+SELECT * FROM Update_Info;
 
 Insert into Member (mem_Id, mem_Pw, APT_DONG, APT_HNUM, APT_NUM, Car_Num)  values ('admin', 'admin', 'default', 'default', 1, '1111223345');
 

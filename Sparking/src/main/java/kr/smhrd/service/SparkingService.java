@@ -39,6 +39,12 @@ public class SparkingService {
 	public List<Member> loginList() {
 		return Sparkingmapper.loginList();
 	}
+	
+	// 업데이트 된 입주민 정보 화면에 뿌려주기
+		public List<Member> userInfoList() {
+			return Sparkingmapper.userInfoList();
+		}
+
 
 	// 회원정보 수정
 	public List<Member> modifyList() {
@@ -63,8 +69,8 @@ public class SparkingService {
 		  
 	  }
 
-	  public void update(Member vo) {
-		  Sparkingmapper.update(vo);
+	  public void updateInfo(Member vo) {
+		  Sparkingmapper.updateInfo(vo);
 	  }
 	  
 	  public Member getMember(String memId) {
@@ -77,7 +83,18 @@ public class SparkingService {
 	}
 	  
 	  
+	 public Member yesInfo(String mem_Id) {
+		 
+		 return Sparkingmapper.yesInfo(mem_Id);
+	 }
+	 
+    public void yesUpdateInfo(Member vo) {
+		 
+		  Sparkingmapper.yesUpdateInfo(vo);
+	 }
 	  
-	  
-	  
+    public void yesDeleteInfo(String mem_Id) {
+		 
+		  Sparkingmapper.yesDeleteInfo(mem_Id);
+	 }  
 }

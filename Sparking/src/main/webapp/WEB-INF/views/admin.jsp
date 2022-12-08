@@ -28,7 +28,75 @@
     	   error : function(){ alert("error");}
        });     
   	});
+  	
+  	$("#tabmenu1").click(function(){
+        $.ajax({
+     	   url : "updateInfo",
+     	   type : "get",
+     	   dataType : "json",
+     	   success : infoView,
+     	   error : function(){ alert("error");}
+        });     
+   	});	
   });
+  function yesFn(mem_Id){	 
+	        $.ajax({
+	     	   url : "yesInfo",
+	     	   type : "get",
+	     	   data : {"mem_Id":mem_Id},	     	
+	     	   success : function(){ 
+	     		   location.href="admin";	     		   
+	     	   },
+	     	   error : function(){ alert("error");}
+	        });  
+  }
+  
+  function noFn(mem_Id){	 
+      $.ajax({
+   	   url : "noInfo",
+   	   type : "get",
+   	   data : {"mem_Id":mem_Id},	     	
+   	   success : function(){ 
+   		   location.href="admin";	     		   
+   	   },
+   	   error : function(){ alert("error");}
+      });  
+}
+  
+  
+  
+  function infoView(data){
+	  var html="<table class='table table-striped'>";
+	  html+="<thead class='thead-dark'>";
+	  html+="<tr>";
+	  html+="<th>user_id</th>";
+			 	
+				html += "<th>user_pw</th>";
+				html += "<th>in</th>";
+				html += "<th>out</th>";
+				html += "<th>차량 번호</th>";
+				html += "<th>승인</th>";
+				html += "<th>거절</th>";
+				html += "</tr>";
+				html += "</thead>";
+				html += "<tbody>";
+				$.each(data, function(indxe, info) {
+					html += "<tr>";
+					html += "<td>" + info.mem_Id + "</td>";
+					html += "<td>" + info.mem_Pw + "</td>";
+					html += "<td>" + info.p_intime + "</td>";
+					html += "<td>" + info.p_outtime + "</td>";
+					html += "<td>" + info.car_num + "</td>";
+					html += "<td><button onclick='yesFn("+info.mem_Id+")'>승인</button></td>";
+					html += "<td><button id = 'no'>거절</button></td>";
+					html += "</tr>";
+
+				});
+
+				html += "</tbody>";
+				html += "</table>";
+				$("#menu1").html(html);
+	}
   
   function listView(data){
 	  var html="<table class='table table-striped'>";
@@ -49,8 +117,8 @@
 				html += "<tbody>";
 				$.each(data, function(indxe, info) {
 					html += "<tr>";
-					html += "<td>" + info.memId + "</td>";
-					html += "<td>" + info.memPw + "</td>";
+					html += "<td>" + info.mem_Id + "</td>";
+					html += "<td>" + info.mem_Pw + "</td>";
 					html += "<td>" + info.apt_dong + "</td>";
 					html += "<td>" + info.apt_hnum + "</td>";
 		<%-- <td>${fn:substring(info.p_intime,11,16)}</td> --%>
@@ -66,61 +134,11 @@
 				html += "</tbody>";
 				html += "</table>";
 				$("#home").html(html);
-			}
+  }
   
   
-  	// 가입 승인 및 거절하는 ajax
-  	$('.appro').click(function () {
-		const successid = $(this).data("userid");
-		console.log(successid);
-		// 0 가입대기, 1 가입승인, 2 가입거절
-		
-		$.ajax({
-			type : 'post'
-			url : '<c:url value = "/admin/successid"/>',
-			data : {
-				id : successid,
-			},
-			success : function(data) {
-			}, error : function (status, error) {
-				console.log('에러발생!!');
-				
-				console.log(status, error);
-			}
-		});
-		$('.modal_approve').fadein(500);	
-	});
   	
-  	// 가입 여부 버튼 클릭시 요청 삭제
-  	$('./deni').click(function () {
-		console.log('회원가입 거부!');
-  	});
-  	
-  	$('userDrop').click(function () {
-		const dropid = $(this).data("userid");
-		console.log(dropid);
-		$.ajax({
-			type : 'post'
-			url : '<c:url value = "/admin/dropid" />',
-			data : {
-			id : dropid,
-			},
-			success : function (data) {
-			}, error : function (status, error) {
-						console.log('에러발생!!')
-						
-						console.log(status, error);
-			}
-			
-		});
-		
-	});  //???? 왜 이게 하나 남는거지....???
-  
-  
-  
-  
-  
-		</script>
+</script>
 </head>
 <body>
 
@@ -148,7 +166,8 @@
       <a id="tabhome" class="nav-link active" data-toggle="tab" href="#home">회원정보</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#menu1">회원정보 수정</a>
+      <a id="tabmenu1" class="nav-link" data-toggle="tab" href="#menu1">회원정보 수정</a>
+      
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#menu2">외부주차 현황</a>
@@ -176,8 +195,8 @@
        <tbody>
        <c:forEach var="info" items = "${list}">
          <tr>
-            <td>${info.memId}</td>
-            <td>${info.memPw}</td>
+            <td>${info.mem_Id}</td>
+            <td>${info.mem_Pw}</td>
             <td>${info.apt_dong}</td>
             <td>${info.apt_hnum}</td>
             <%-- <td>${fn:substring(info.p_intime,11,16)}</td> --%>
@@ -243,6 +262,10 @@
           </div>
           <br><br>
           
+          <div>
+          아이디 <input type="text" class="form-control w-25" value="${mvo.mem_Id}" name="mem_Id" />
+          </div>
+          
            <div>
           *동 <input type="text" class="form-control w-25" value="${mvo.apt_dong}" name="apt_dong" />
           *호수 <input type="text" class="form-control w-25" value="${mvo.apt_hnum}" name="apt_hnum" />
@@ -251,11 +274,11 @@
           <div class="p-2"><button type="button" class="btn-primary btn-sm">중복확인</button></div>
           
             <div class="p-2">
-           *비밀번호<input type="password"value="${mvo.memPw}" name="memPw"/>
+           *비밀번호<input type="password"value="${mvo.mem_Pw}" name="mem_Pw"/>
           </div>
           
           <div class="p-2">
-           *전화번호<input type="id" value = "${mvo.memId}" name="memId"/>
+           *전화번호<input type="id" value = "${mvo.mem_Id}" name="mem_Id"/>
           </div>
           
           <div class="p-2">
@@ -289,8 +312,9 @@
     
     
     </div>
-    <div id="menu1" class="container tab-pane fade"><br>
-     <table class=" table table-striped">
+    <div id="menu1" class="container tab-pane fade">
+    7777
+    <%--  <table class=" table table-striped">
      <thead class="thead-dark ">
          <tr>
             <th>user_id</th>
@@ -305,8 +329,8 @@
       </thead>
       <tbody>
          <tr>
-            <td>${mvo.memId}</td>
-           <td>${mvo.memPw}</td>
+            <td>${mvo.mem_Id}</td>
+           <td>${mvo.mem_Pw}</td>
             <td>${mvo.apt_dong}</td>
             <td>${mvo.apt_hnum}</td>
             <td>${mvo.p_intime}</td>
@@ -336,7 +360,7 @@
          </a>
        </li>
      </ul>
-     </nav>
+     </nav> --%>
       
     </div>
     <div id="menu2" class="container tab-pane fade"><br>

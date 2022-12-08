@@ -25,14 +25,14 @@
 			})
 		
 			$("#submit").on("click", function(){
-				if($("#memId").val()==""){
+				if($("#mem_Id").val()==""){
 					alert("아이디를 입력해주세요.");
-					$("#memId").focus();
+					$("#mem_Id").focus();
 					return false;
 				}
-				if($("#memPw").val()==""){
+				if($("#mem_Pw").val()==""){
 					alert("비밀번호를 입력해주세요.");
-					$("#memPw").focus();
+					$("#mem_Pw").focus();
 					return false;
 				}
 				if($("#userName").val()==""){
@@ -51,12 +51,12 @@
 <section id="container">
 			<form action="join" method="post">
 				<div class="form-group has-feedback">
-					<label class="control-label" for="memId">아이디</label>
-					<input class="form-control" type="text" id="memId" name="memId" />
+					<label class="control-label" for="mem_Id">아이디</label>
+					<input class="form-control" type="text" id="mem_Id" name="mem_Id" />
 				</div>
 				<div class="form-group has-feedback">
-					<label class="control-label" for="memPw">패스워드</label>
-					<input class="form-control" type="password" id="memPw" name="memPw" />
+					<label class="control-label" for="mem_Pw">패스워드</label>
+					<input class="form-control" type="password" id="mem_Pw" name="mem_Pw" />
 				</div>
 				<div class="form-group has-feedback">
 					<label class="control-label" for="APT_Dong">동 이름</label>

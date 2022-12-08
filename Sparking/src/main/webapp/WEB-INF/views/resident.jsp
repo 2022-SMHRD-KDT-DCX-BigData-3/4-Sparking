@@ -45,7 +45,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top ">
   <a class="navbar-brand" href="#">Logo</a>
   <span class="navbar-text justify-content-end">
-  <c:if test="${mvo.memId=='admin'}">
+  <c:if test="${mvo.mem_Id=='admin'}">
     <a href="admin">관리자 페이지</a>
   </c:if>
     &emsp;
@@ -66,7 +66,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
          <form action="update" method="post">
-         <input type="hidden" value="${mvo.memId}" name="memId"/>
+         <input type="hidden" value="${mvo.mem_Id}" name="mem_Id"/>
         <!-- Modal body -->
         <div class="modal-body">
           
@@ -90,12 +90,12 @@
         
           
           <div class="p-2">
-           *비밀번호<input type="password" value="${mvo.memPw}" name="memPw"/>
+           *비밀번호<input type="password" value="${mvo.mem_Pw}" name="mem_Pw"/>
           </div>
           
-          <div class="p-2">
-           *전화번호<input type="id" value = "${mvo.memId}" name="memId"/>
-          </div>
+          <%-- <div class="p-2">
+           *전화번호<input type="id" value = "${mvo.mem_Id}" name="mem_Id"/>
+          </div> --%>
           
           *차량번호
            <!-- <button type="button" id="addButton" class="btn-primary">추가</button>

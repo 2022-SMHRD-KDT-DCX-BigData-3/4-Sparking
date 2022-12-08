@@ -8,8 +8,8 @@ import lombok.Data;
 public class Member {
 	
 // 로그인, 회원가입을 위한 회원 정보
-	private String memId;
-	private String memPw;
+	private String mem_Id;
+	private String mem_Pw;
 	private String apt_dong;
 	private String apt_hnum;
 	private String p_intime;

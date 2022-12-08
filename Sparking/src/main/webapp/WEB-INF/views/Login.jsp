@@ -18,8 +18,8 @@
 /* 아이디 입력 요청하는 창 */
 $(function(){
 $("#btnLogin").click(function(){
- userid=$("#memId").val();
- var passwd=$("#memPw").val(); if(userid == ""){
+ userid=$("#mem_Id").val();
+ var passwd=$("#mem_Pw").val(); if(userid == ""){
   alert("아이디를 입력하세요");
   $("#memId").focus(); //입력포커스 이동
 
@@ -72,13 +72,13 @@ $("#btnLogout").click(function(){
   <!-- <form action="form1" method = "post" class="needs-validation" novalidate> -->
   <div class="form-group">
       <label for="uname">ID:</label>
-      <input type="text" class="form-control" id="memId" placeholder="Enter username" name="memId" required>
+      <input type="text" class="form-control" id="mem_Id" placeholder="Enter username" name="mem_Id" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="memPw" placeholder="Enter password" name="memPw" required>
+      <input type="password" class="form-control" id="mem_Pw" placeholder="Enter password" name="mem_Pw" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
@@ -100,12 +100,12 @@ $("#btnLogout").click(function(){
 <form action = 'Login' name="form2" method="post">
    <button type="button" id="btnLogout">로그아웃</button>
 </form>
-<c:if test="${mvo.memId=='admin'}">
+<c:if test="${mvo.mem_Id=='admin'}">
 <form action="admin" method="get">
 	<button type = "submit" id="admin">관리자 페이지로 이동</button>
 </form>
 </c:if>
-<c:if test="${mvo.memId!='admin'}">
+<c:if test="${mvo.mem_Id!='admin'}">
 <form action="resident" method="get">
 	<button type = "submit" id="resident">입주민 페이지로 이동</button>
 </form>

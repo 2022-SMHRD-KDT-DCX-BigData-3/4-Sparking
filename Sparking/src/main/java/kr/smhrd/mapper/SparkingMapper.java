@@ -15,7 +15,7 @@ import kr.smhrd.service.SparkingService;
 
 public interface SparkingMapper {
 		//로그인 mapper
-	   @Select("select * from Member where mem_Id=#{memId} and mem_Pw=#{memPw}")
+	   @Select("select * from Member where mem_Id=#{mem_Id} and mem_Pw=#{mem_Pw}")
 	   public Member login(Member vo);
 
 		/*
@@ -29,15 +29,20 @@ public interface SparkingMapper {
 	   
 	   public List<Member> loginList();
 	   
+	   public List<Member> userInfoList();
+	   
 	   public List<Member> modifyList(); //회원가입 수정
 
 	   public static int idCheck(Member vo) {
 		return 0;
 	  }
 	   
-	   public void update(Member vo);
+	   public void updateInfo(Member vo);
 	  
 	   public Member getMember(String memId);	
-		
+	
+	   public Member yesInfo(String mem_Id);	
+	   public void yesUpdateInfo(Member vo);
+	   public void yesDeleteInfo(String mem_Id);
 }
  
