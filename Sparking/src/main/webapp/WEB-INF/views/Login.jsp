@@ -95,7 +95,7 @@ $("#btnLogout").click(function(){
 </div>
 
 </div>
-  <c:if test="${!empty mvo}">
+<%--   <c:if test="${!empty mvo}">
 로그인이 성공
 <form action = 'Login' name="form2" method="post">
    <button type="button" id="btnLogout">로그아웃</button>
@@ -111,7 +111,7 @@ $("#btnLogout").click(function(){
 </form>
 
 </c:if>
-</c:if>
+</c:if> --%>
   <!-- 헌 디자인  -->
 
 <%-- <form name="form1" method="post">

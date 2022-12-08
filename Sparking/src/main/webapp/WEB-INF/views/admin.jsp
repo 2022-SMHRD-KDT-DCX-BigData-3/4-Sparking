@@ -51,9 +51,10 @@
 	        });  
   }
   
-  function noFn(mem_Id){	 
+  function noFn{	 
       $.ajax({
    	   url : "noInfo",
+   	   method : 'DELETE',
    	   type : "get",
    	   data : {"mem_Id":mem_Id},	     	
    	   success : function(){ 
@@ -88,7 +89,7 @@
 					html += "<td>" + info.p_outtime + "</td>";
 					html += "<td>" + info.car_num + "</td>";
 					html += "<td><button onclick='yesFn("+info.mem_Id+")'>승인</button></td>";
-					html += "<td><button id = 'no'>거절</button></td>";
+					html += "<td><button onclick='noFn'>거절</button></td>";
 					html += "</tr>";
 
 				});
@@ -235,6 +236,7 @@
   </ul>
   </nav>
 
+<!-- 회원가입 할 모달창  -->
   <!-- The Modal -->
   <div class="modal fade" id="myModal">
     <div class="modal-dialog modal-dialog-centered">
@@ -245,18 +247,18 @@
           <h4 class="modal-title">회원가입</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-         <form action="join" method = "post">
+         <form id="formTag" action="/controller/join" method = "post">
         <!-- Modal body -->
         <div class="modal-body">
           
           <div class="p-2">
           *아파트 선택
-            <form action="/action_page.php">
+            <!-- <form action="/action_page.php"> -->
               <select name="apt" class="custom-select mb-3">
                 <option selected>apt</option>
-                <option value="1">test1</option>
-                <option value="2">test2</option>
-                <option value="3">test3</option>
+                <option value="1">자이</option>
+                <option value="2">힐스테이트</option>
+                <option value="3">롯데</option>
               </select>
             </form>
           </div>
@@ -277,9 +279,6 @@
            *비밀번호<input type="password"value="${mvo.mem_Pw}" name="mem_Pw"/>
           </div>
           
-          <div class="p-2">
-           *전화번호<input type="id" value = "${mvo.mem_Id}" name="mem_Id"/>
-          </div>
           
           <div class="p-2">
            *차량번호<input type="text" value = "${mvo.car_num}", name = "car_num">
@@ -303,9 +302,9 @@
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-          <button type="button" class="btn btn-primary" >가입</button>
+          <input id="join" type="submit" class="btn btn-primary" value="가입" />
         </div>
-        
+        </form>
       </div>
     </div>
   </div>
@@ -313,7 +312,7 @@
     
     </div>
     <div id="menu1" class="container tab-pane fade">
-    7777
+    
     <%--  <table class=" table table-striped">
      <thead class="thead-dark ">
          <tr>
@@ -412,6 +411,16 @@
   <div class="col-sm-1 col-md-1 col-lg-2"></div>
   
 </div>
+<script>
+/* 가입버튼 안먹혀서 제이쿼리 이용  */
+const join = document.getElementById("join")
+const formTag = document.getElementById("formTag")
+join.addEventListener("click", ()=>{
+	formTag.submit();
+}
+)
+</script>
 
 </body>
+
 </html>

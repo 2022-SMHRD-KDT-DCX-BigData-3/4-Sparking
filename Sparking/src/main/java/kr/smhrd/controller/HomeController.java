@@ -23,9 +23,7 @@ import kr.smhrd.entity.Member;
 import kr.smhrd.mapper.SparkingMapper;
 import kr.smhrd.service.SparkingService;
 
-/**
- * Handles requests for the application home page.
- */
+
 @Controller
 public class HomeController {
 
@@ -35,9 +33,6 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		
@@ -56,9 +51,7 @@ public class HomeController {
 			session.setAttribute("message", "error");
 			return "Login";
 		}
-		 // 
 		
-		//return "redirect:/";
 	}
 	
 	@PostMapping("/Logout") // 로그아웃
@@ -75,14 +68,16 @@ public class HomeController {
 		return "join"; 
 			
 	}
-	@PostMapping("/join") // 회원가입 하기
-	public String join(Member vo) {
-		sparkingService.join(vo);
-		//int result 
-		
-		return "redirect:/"; 
-			
-	}
+	
+	  @PostMapping("/join") // 회원가입 하기 
+	  public String join(Member vo) {
+		  System.out.println(vo.getApt_num());
+	  sparkingService.join(vo); //int result
+	  
+	  return "redirect:/"; 
+	  }
+	 
+
 	
 	@GetMapping("/admin") // 관리자 로그인 성공 후 관리자 페이지 클릭 시 관리자 페이지로 접속
 	public String admin(Model model) {
@@ -107,7 +102,7 @@ public class HomeController {
 		return list;
 	}
 	
-	@GetMapping("/updateInfo") // 새로고침 하여 회원정보 등록한 입주민들을 화면 변화 없이 업데이트
+	@GetMapping("/updateInfo") // 수정 요청한 정보 임시 테이블에 담기
 	public @ResponseBody List<Member> userInfoList()         {
 		List<Member> list=sparkingService.userInfoList();
 		//model.addAttribute("list", list);

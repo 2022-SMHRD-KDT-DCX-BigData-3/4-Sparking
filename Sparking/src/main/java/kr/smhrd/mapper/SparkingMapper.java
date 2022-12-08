@@ -25,6 +25,7 @@ public interface SparkingMapper {
 		 * ) public void join(Member vo);
 		 */
 	   
+	   // 회원가입 
 	   public void join(Member vo);
 	   
 	   public List<Member> loginList();
@@ -41,8 +42,13 @@ public interface SparkingMapper {
 	  
 	   public Member getMember(String memId);	
 	
+	   // 회원정보 수정 승인시
 	   public Member yesInfo(String mem_Id);	
 	   public void yesUpdateInfo(Member vo);
 	   public void yesDeleteInfo(String mem_Id);
+	   
+	   // 회원정보 수정 거절시
+	   public void noDeleteInfo(String mem_Id);
+	   
 }
  

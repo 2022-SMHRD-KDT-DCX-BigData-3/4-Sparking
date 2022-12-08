@@ -11,8 +11,8 @@
  <!-- 로그인 mapper는 Sparking Service에 어노테이션으로 작성해둠 -->
 	
 <insert id="join" parameterType="kr.smhrd.entity.Member">
-	INSERT INTO Member (mem_Id,mem_Pw,apt_dong,apt_hnum,p_intime,p_outtime,apt_num)
-	VALUES (#{mem_Id},#{mem_Pw},#{apt_dong},#{apt_hnum},to_date(#{p_intime},'HH24:MI'),to_date(#{p_outtime},'HH24:MI'),#{apt_num})
+	INSERT INTO Member (mem_Id, mem_Pw, apt_dong, apt_hnum, p_intime, p_outtime, car_num)
+	VALUES (#{mem_Id},#{mem_Pw},#{apt_dong},#{apt_hnum},to_date(#{p_intime},'HH24:MI'),to_date(#{p_outtime},'HH24:MI'), #{car_num})
 </insert>
 
 <select id="loginList" resultType="kr.smhrd.entity.Member">
