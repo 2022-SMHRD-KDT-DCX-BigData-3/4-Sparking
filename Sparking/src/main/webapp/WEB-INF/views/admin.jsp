@@ -51,10 +51,9 @@
 	        });  
   }
   
-  function noFn{	 
+   function noFn(mem_Id){	 
       $.ajax({
    	   url : "noInfo",
-   	   method : 'DELETE',
    	   type : "get",
    	   data : {"mem_Id":mem_Id},	     	
    	   success : function(){ 
@@ -62,7 +61,7 @@
    	   },
    	   error : function(){ alert("error");}
       });  
-}
+} 
   
   
   
@@ -89,7 +88,7 @@
 					html += "<td>" + info.p_outtime + "</td>";
 					html += "<td>" + info.car_num + "</td>";
 					html += "<td><button onclick='yesFn("+info.mem_Id+")'>승인</button></td>";
-					html += "<td><button onclick='noFn'>거절</button></td>";
+					html += "<td><button onclick='noFn("+info.mem_Id+")'>거절</button></td>";
 					html += "</tr>";
 
 				});

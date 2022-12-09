@@ -167,4 +167,11 @@ public class HomeController {
 				sparkingService.yesDeleteInfo(mem_Id);
 				return "admin";			
 			}
+			@GetMapping("/noInfo") // 관리자 로그인 성공 후 관리자 페이지 클릭 시 관리자 페이지로 접속
+			public String noInfo(String mem_Id) {
+				sparkingService.noDeleteInfo(mem_Id);
+				return "admin";			
+			}
+			
+			
 }

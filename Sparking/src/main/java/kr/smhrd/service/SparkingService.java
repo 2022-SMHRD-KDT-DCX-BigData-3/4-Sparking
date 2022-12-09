@@ -97,4 +97,10 @@ public class SparkingService {
 		 
 		  Sparkingmapper.yesDeleteInfo(mem_Id);
 	 }  
+    public void noDeleteInfo(String mem_Id) {
+		 
+		  Sparkingmapper.noDeleteInfo(mem_Id);
+	 }  
+    
+    
 }

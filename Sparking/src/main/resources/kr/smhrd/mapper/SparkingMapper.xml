@@ -102,6 +102,10 @@ select mem_Id,mem_Pw,
 <delete id="yesDeleteInfo">
 	delete from Update_Info where mem_Id = #{mem_Id}
 </delete>
+
+<delete id="noDeleteInfo">
+	delete from Update_Info where mem_Id = #{mem_Id}
+</delete>
 		
 </mapper>
 
