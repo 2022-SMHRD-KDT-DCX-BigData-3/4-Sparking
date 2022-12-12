@@ -140,12 +140,17 @@
 <br>
 <br>
 <br>
+<form action="/dongParking" method = "get">
 <div class="container">
   <div class="card-columns">
     <div class="card bg-success">
-      <a href="" >   
         <div class="card-body text-center">
-           <p class="card-text"><a href="parking" class="text-body"><h3>101동</h3></a></p>
+           <p class="card-text"><a href="parking?apt_dong=101" id="subpa" class="text-body" onclick="subpa()"><h3>101동</h3></a></p>
+           <script type="text/javascript">
+           subpa(){
+        	   document.getElementById('subpa').submit();
+           }
+           </script>
          </div>
       </a>
     </div>
@@ -176,7 +181,7 @@
     </div>
   </div>
 </div>
-
+</form>
 
 </body>
 </html>

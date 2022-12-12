@@ -107,5 +107,14 @@ select mem_Id,mem_Pw,
 	delete from Update_Info where mem_Id = #{mem_Id}
 </delete>
 		
+	<!-- flask 연동쿼리 -->	
+	<select id="flask" resultType="kr.smhrd.entity.Parking" parameterType="kr.smhrd.entity.Parking">
+	select * from Parking_Info where apt_dong = #{apt_dong}
+	</select>
+	
+	<select id="getAptDong" resultType="kr.smhrd.entity.Parking">
+	select * from Parking_Info where apt_dong = #{apt_dong}
+	</select>	
+		
 </mapper>
 

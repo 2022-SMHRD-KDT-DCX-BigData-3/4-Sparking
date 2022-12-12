@@ -38,8 +38,25 @@ select memId,memPw,apt_dong,apt_hnum,to_char(p_intime,'HH24:MI'),to_char(p_outti
 
 SELECT * FROM MEMBER;
 
+select * from parking_info;
+
 SELECT * FROM Update_Info;
 
 Insert into Member (mem_Id, mem_Pw, APT_DONG, APT_HNUM, APT_NUM, Car_Num)  values ('admin', 'admin', 'default', 'default', 1, '1111223345');
 
 Insert into Member (mem_Id, mem_Pw, APT_DONG, APT_HNUM, APT_NUM, Car_Num)  values ('1234', '1234', '101', '112', 2, '1111223367');
+
+Insert into Parking_Info(APT_DONG) values('101')
+
+insert into Parking_Info values('1','101','1','2','2',to_char('2022-12-30 12:53:22.0'), to_char('2022-12-31 12:54:23.0'));
+
+
+
+
+
+
+
+
+
+
+

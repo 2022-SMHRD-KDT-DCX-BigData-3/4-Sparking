@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.smhrd.entity.Member;
+import kr.smhrd.entity.Parking;
 import kr.smhrd.mapper.SparkingMapper;
 
 @Service
@@ -82,7 +83,7 @@ public class SparkingService {
 		
 	}
 	  
-	  
+	  // 회원정보 수정 승인 및 거절 
 	 public Member yesInfo(String mem_Id) {
 		 
 		 return Sparkingmapper.yesInfo(mem_Id);
@@ -102,5 +103,12 @@ public class SparkingService {
 		  Sparkingmapper.noDeleteInfo(mem_Id);
 	 }  
     
+    public Parking flask() {
+    	return Sparkingmapper.flask();
+		
+    }
     
+    public List<Parking> getAptDong(String apt_dong){
+    	return Sparkingmapper.getAptDong(apt_dong);
+    }
 }

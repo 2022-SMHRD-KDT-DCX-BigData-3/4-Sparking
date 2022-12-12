@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.smhrd.entity.Member;
+import kr.smhrd.entity.Parking;
 import kr.smhrd.service.SparkingService;
 
 
@@ -50,5 +51,10 @@ public interface SparkingMapper {
 	   // 회원정보 수정 거절시
 	   public void noDeleteInfo(String mem_Id);
 	   
+	   
+	   // spring flask 연동
+	   public Parking flask(); 
+	   
+	   public List<Parking> getAptDong(String apt_dong);
 }
  
