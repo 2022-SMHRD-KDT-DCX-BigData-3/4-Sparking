@@ -156,27 +156,56 @@
     </div>
     <div class="card bg-warning">
       <div class="card-body text-center">
-        <p class="card-text"><a href="parking" class="text-body"><h3>102동</h3></a></p>
+        <p class="card-text"><a href="parking?apt_dong=102" id ="subpb" class="text-body" onclick="subpb"><h3>102동</h3></a></p>
+			<script type="text/javascript">
+			subpb(){
+				document.getElementById('subpb').submit();
+			}
+			</script>      
       </div>
     </div>
     <div class="card bg-success">
       <div class="card-body text-center">
-        <p class="card-text"><a href="parking" class="text-body"><h3>103동</h3></a></p>
+        <p class="card-text"><a href="parking?apt_dong=103" id = "subpc" class="text-body" onclick="subpc"><h3>103동</h3></a></p>
+      		<script type="text/javascript">
+				subpc(){
+					document.getElementById('subpc').submit();
+				}      		
+      		</script>
       </div>
     </div>
     <div class="card bg-danger">
       <div class="card-body text-center">
-        <p class="card-text"><a href="parking" class="text-body"><h3>104동</h3></a></p>
+        <p class="card-text"><a href="parking?apt_dong=104" id = "subpd" class="text-body" onclick="subpd"><h3>104동</h3></a></p>
+      		<script type="text/javascript">
+      			subpd(){
+      				document.getElementById('subpd').submit();
+      			}
+      		
+      		</script>
       </div>
     </div>  
     <div class="card bg-warning">
       <div class="card-body text-center">
-        <p class="card-text"><a href="parking" class="text-body"><h3>105동</h3></a></p>
+        <p class="card-text"><a href="parking?apt_dong=105" id = "subpe" class="text-body" onclick="subpe"><h3>105동</h3></a></p>
+      		<script type="text/javascript">
+      			subpe(){
+      				document.getElementById('subpe').submit();
+      			}
+      		
+      		</script>
       </div>
     </div>
     <div class="card bg-success">
       <div class="card-body text-center">
-        <p class="card-text"><a href="parking" class="text-body"><h3>106동</h3></a></p>
+        <p class="card-text"><a href="parking?apt_dong=106" id="subpf" class="text-body" onclick="subpf"><h3>106동</h3></a></p>
+     		<script type="text/javascript">
+     			subpf(){
+     				
+     				document.getElementById('subpf').submit();
+     			}
+     		</script>
+     
       </div>
     </div>
   </div>
