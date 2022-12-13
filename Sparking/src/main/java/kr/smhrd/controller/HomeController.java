@@ -209,7 +209,8 @@ public class HomeController {
 		  
 		  System.out.println("" + sb.toString()); } catch (MalformedURLException e) {
 		  e.printStackTrace(); } catch (IOException e) { e.printStackTrace(); }
-		  mav.addObject("parking", sb.toString()); // "test1"는 jsp파일에서 받을때 이름, //sb.toString은 value값(여기에선 test) 
+		  mav.addObject("parking", sb.toString()); // "test1"는 jsp파일에서 받을때 이름, 
+		  //sb.toString은 value값(여기에선 test) 
 		  mav.addObject("fail", false);
 		  mav.setViewName("parking"); // jsp파일 이름
 		 		

@@ -143,7 +143,7 @@
 <form action="/dongParking" method = "get">
 <div class="container">
   <div class="card-columns">
-    <div class="card bg-success">
+    <div class="card bg-light">
         <div class="card-body text-center">
            <p class="card-text"><a href="parking?apt_dong=101" id="subpa" class="text-body" onclick="subpa()"><h3>101동</h3></a></p>
            <script type="text/javascript">
@@ -154,7 +154,7 @@
          </div>
       </a>
     </div>
-    <div class="card bg-warning">
+    <div class="card bg-light">
       <div class="card-body text-center">
         <p class="card-text"><a href="parking?apt_dong=102" id ="subpb" class="text-body" onclick="subpb"><h3>102동</h3></a></p>
 			<script type="text/javascript">
@@ -164,7 +164,7 @@
 			</script>      
       </div>
     </div>
-    <div class="card bg-success">
+    <div class="card bg-light">
       <div class="card-body text-center">
         <p class="card-text"><a href="parking?apt_dong=103" id = "subpc" class="text-body" onclick="subpc"><h3>103동</h3></a></p>
       		<script type="text/javascript">
@@ -174,7 +174,7 @@
       		</script>
       </div>
     </div>
-    <div class="card bg-danger">
+    <div class="card bg-light">
       <div class="card-body text-center">
         <p class="card-text"><a href="parking?apt_dong=104" id = "subpd" class="text-body" onclick="subpd"><h3>104동</h3></a></p>
       		<script type="text/javascript">
@@ -185,7 +185,7 @@
       		</script>
       </div>
     </div>  
-    <div class="card bg-warning">
+    <div class="card bg-light">
       <div class="card-body text-center">
         <p class="card-text"><a href="parking?apt_dong=105" id = "subpe" class="text-body" onclick="subpe"><h3>105동</h3></a></p>
       		<script type="text/javascript">
@@ -196,7 +196,7 @@
       		</script>
       </div>
     </div>
-    <div class="card bg-success">
+    <div class="card bg-light">
       <div class="card-body text-center">
         <p class="card-text"><a href="parking?apt_dong=106" id="subpf" class="text-body" onclick="subpf"><h3>106동</h3></a></p>
      		<script type="text/javascript">
