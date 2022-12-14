@@ -201,6 +201,7 @@ public class HomeController {
 		  
 		  String line = null;
 		  
+		  //값을 읽어오는 코드
 		  while ((line = br.readLine()) != null) { sb = sb + line + "\n"; }
 		  System.out.println("========br======" + sb.toString()); if
 		  (sb.toString().contains("ok")) { System.out.println("test");
@@ -217,5 +218,14 @@ public class HomeController {
 		return "parking";
 
 	}
+	// 동별 색깔 표시
+	/*
+	 * @GetMapping("resident") public int dongState() {
+	 * sparkingService.dong_state(dvc_num); return resident;
+	 * 
+	 * }
+	 */
+	
+	
 
 }

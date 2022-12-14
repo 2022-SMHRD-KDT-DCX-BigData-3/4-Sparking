@@ -13,7 +13,9 @@
 <insert id="join" parameterType="kr.smhrd.entity.Member">
 	INSERT INTO Member (mem_Id, mem_Pw, apt_dong, apt_hnum, p_intime, p_outtime, car_num)
 	VALUES (#{mem_Id},#{mem_Pw},#{apt_dong},#{apt_hnum},to_date(#{p_intime},'HH24:MI'),to_date(#{p_outtime},'HH24:MI'), #{car_num})
+	
 </insert>
+
 
 <select id="loginList" resultType="kr.smhrd.entity.Member">
 	select mem_Id,mem_Pw,apt_dong,apt_hnum,
@@ -63,6 +65,11 @@
 <update id="dropUser" parameterType="kr.smhrd.entity.Member">
 	update Member set mem_grage = 3 where mem_Id = #{mem_Id}
 </update>
+
+<select id="dongState" resultType="int">
+	select * from Parking_Info where apt_dong = #{apt_dong} 
+</select>
+
 
 
 

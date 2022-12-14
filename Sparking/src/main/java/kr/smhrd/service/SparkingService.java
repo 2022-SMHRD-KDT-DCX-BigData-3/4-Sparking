@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import kr.smhrd.entity.Member;
 import kr.smhrd.entity.Parking;
 import kr.smhrd.mapper.SparkingMapper;
-
+//SparkingService interface  -> SparkingServiceImpl
 @Service
 public class SparkingService {
 
@@ -111,4 +111,12 @@ public class SparkingService {
     public List<Parking> getAptDong(String apt_dong){
     	return Sparkingmapper.getAptDong(apt_dong);
     }
+    
+    public Parking dong_state() {
+    	return  Sparkingmapper.dongState(0);
+    }
+    
+    
+    
+    
 }

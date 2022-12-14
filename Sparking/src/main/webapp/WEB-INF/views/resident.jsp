@@ -144,6 +144,8 @@
 <div class="container">
   <div class="card-columns">
     <div class="card bg-light">
+ 		<%-- <c:forEach var="i" begin = "0" end = "6"> --%>
+ 			
         <div class="card-body text-center">
            <p class="card-text"><a href="parking?apt_dong=101" id="subpa" class="text-body" onclick="subpa()"><h3>101동</h3></a></p>
            <script type="text/javascript">
@@ -208,6 +210,7 @@
      
       </div>
     </div>
+ <%--    </c:forEach> --%>
   </div>
 </div>
 </form>

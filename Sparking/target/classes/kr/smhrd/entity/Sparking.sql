@@ -48,9 +48,13 @@ Insert into Member (mem_Id, mem_Pw, APT_DONG, APT_HNUM, APT_NUM, Car_Num)  value
 
 Insert into Parking_Info(APT_DONG) values('101')
 
-insert into Parking_Info values('1','101','1','2','2',to_char('2022-12-30 12:53:22.0'), to_char('2022-12-31 12:54:23.0'));
+Insert into Parking_Info values('32','102','1','2','1974',to_char('2022-12-30 12:53'), to_char('2022-12-31 12:54:23'))
 
+Insert into Member (mem_Id, mem_Pw, APT_DONG, APT_HNUM, APT_NUM, Car_Num)  values ('admin', 'admin', 'default', 'default', 1, '1111223345');
 
+Truncate table Parking_info;
+
+select * from Member;
 
 
 

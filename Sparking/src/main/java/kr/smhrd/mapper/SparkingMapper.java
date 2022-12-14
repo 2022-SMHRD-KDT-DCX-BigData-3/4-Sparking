@@ -56,5 +56,10 @@ public interface SparkingMapper {
 	   public Parking flask(); 
 	   
 	   public List<Parking> getAptDong(String apt_dong);
+
+	   // 동별 색깔 표시
+	   public Parking dongState(int dvc_num);
+	   
+
 }
  

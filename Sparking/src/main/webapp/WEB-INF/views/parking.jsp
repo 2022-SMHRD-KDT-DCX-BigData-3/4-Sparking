@@ -20,8 +20,10 @@ ${parking}
 <div class="container">
   <h2>Parking Information</h2>
   <br><br><br>
-  <div class="card-group">
-    <c:forEach var = "i" begin = "1" end = "10">
+  <div class="card-group">  
+ 
+   <c:forEach var="vo" items="${list}" varStatus="status">
+    <c:if test="${status.index<10}">
     <div class="card ${vo.DVC_STATE==1 ? 'bg-success'  : 'bg-danger'}">
       <div class="card-body text-center">    
       		<br>
@@ -30,14 +32,32 @@ ${parking}
           	<br>
           	<br>
       </div>
-    </div>
+    </div>   
+    </c:if> 
+   </c:forEach> 
+   </div>
+   <br/>
+   <div class="card-group"> 
+    <c:forEach var="vo" items="${list}" varStatus="status">
+    <c:if test="${status.index>=10}">
+    <div class="card ${vo.DVC_STATE==1 ? 'bg-success'  : 'bg-danger'}">
+      <div class="card-body text-center">    
+      		<br>
+      		<br>
+          <p class="card-text">${vo.DVC_STATE==1 ? '빈상태'  : '주차중'}</p>        
+          	<br>
+          	<br>
+      </div>
+    </div>   
+    </c:if>  
  </c:forEach>
   </div>
   
   <br><br><br><br>
   
-  <div class="card-group">
+  <%-- <div class="card-group">
     <c:forEach var = "i" begin = "11" end = "21">
+    	
     <div class="card ${vo.DVC_STATE==1 ? 'bg-success'  : 'bg-danger'}">
       <div class="card-body text-center">    
       		<br>
@@ -47,12 +67,10 @@ ${parking}
           	<br>
       </div>
     </div>
- </c:forEach>
-  </div>
-  
-  
-  
-</div>
+   </c:forEach>
+ </c:forEach> --%>
+  </div>  
+ 
 
 </body>
 </html>

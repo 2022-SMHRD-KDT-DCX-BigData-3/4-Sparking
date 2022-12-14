@@ -188,7 +188,7 @@
          <th>in</th>
          <th>out</th>
          <th>가입여부</th>
-         <th>전화번호</th>
+         <!-- <th>전화번호</th> -->
          <th>차량 번호</th>
          </tr>
        </thead>
@@ -254,10 +254,10 @@
           *아파트 선택
             <!-- <form action="/action_page.php"> -->
               <select name="apt" class="custom-select mb-3">
-                <option selected>apt</option>
-                <option value="1">자이</option>
-                <option value="2">힐스테이트</option>
-                <option value="3">롯데</option>
+                <option selected>아파트</option>
+                <option value="1" ></option>
+                <option value="2"></option>
+                <option value="3" ></option>
               </select>
             </form>
           </div>
