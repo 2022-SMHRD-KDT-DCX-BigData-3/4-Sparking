@@ -165,11 +165,7 @@ public class HomeController {
 		sparkingService.updateInfo(vo);
 		return "redirect:/resident";
 	}
-	/*
-	 * @RequestMapping("/updateInfo") public String updateInfo(Member vo) {
-	 * 
-	 * }
-	 */
+	
 
 	@GetMapping("/yesInfo") // 관리자 로그인 성공 후 관리자 페이지 클릭 시 관리자 페이지로 접속
 	public String yesInfo(String mem_Id) {
@@ -218,6 +214,7 @@ public class HomeController {
 		return "parking";
 
 	}
+	
 	// 동별 색깔 표시
 	/*
 	 * @GetMapping("resident") public int dongState() {

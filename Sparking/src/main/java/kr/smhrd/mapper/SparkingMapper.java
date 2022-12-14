@@ -59,6 +59,7 @@ public interface SparkingMapper {
 
 	   // 동별 색깔 표시
 	   public Parking dongState(int dvc_num);
+
 	   
 
 }

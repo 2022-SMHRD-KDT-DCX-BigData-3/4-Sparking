@@ -36,8 +36,8 @@ if(passwd==""){
  });
  
 $("#btnLogout").click(function(){
-	 document.form2.action= "Logout";
-	 document.form2.submit(); //제출
+    document.form2.action= "Logout";
+    document.form2.submit(); //제출
  });
 });
 </script>
@@ -59,30 +59,36 @@ $("#btnLogout").click(function(){
 
 <c:if test="${empty mvo}">
 </c:if>
-<div class="container col-sm-6 col-md-6 col-lg-10">
-<div class="container col-sm-6 col-md-6 col-lg-10">
-  <img src="${pageContext.request.contextPath}/resources/images/sp02.png" class=" mx-auto d-block rounded" alt="Sparking" width="960" height="240"> 
-</div>
+<div class="wrap">
+<img src="${pageContext.request.contextPath}/resources/images/bn3.jpg" class="img w-100" alt="Sparking"
+   style="width: 100%; height: 100vh; filter: brightness(90%); position:relative; background-image: url("image-url");
+   background-repeat: no-repeat; background-size: cover; background-position: center;">
+  <div class="title p-2 " style="left: 150px; width: 600px; bottom: 180px; font-size: 1.8em; font-weight: bold; position: absolute;">
+     <h2 style="color: orange;"><strong>SMART PARKING</strong></h2>
+     <h1 style="color: white;"><strong>주차전쟁의 새로운 지평</strong></h1>
+     <h1 style="color: white;"><strong>미리 알아보고 주차하는 편리함</strong></h1>
+  </div>
 
-<br>
-<div class="container col-sm-8 col-md-8 col-lg-6">
-  <h2>Sparking Login</h2>
-  <p>홈페이지 간단 소개글 작성하기</p>
-  <form action="Login" method = "post" class="needs-validation" novalidate>
+  <div class="login_box p-2" style="left: 62%; width: 400px; bottom: 30px; font-size: 1.8em; font-weight: bold; position: absolute;">
+     <div class="container-fluid rounded" style="width: 550px; height: 650px; background-color: white; background-color: rgba( 255, 255, 255, 0.5 );">
+      <br><br><br>
+      <img alt="logo" class="img-responsive" src="${pageContext.request.contextPath}/resources/images/sparking_logo.png" >
+      
+       <form action="Login" method = "post" class="needs-validation" novalidate style="">
   <!-- <form action="form1" method = "post" class="needs-validation" novalidate> -->
-  <div class="form-group">
+  <div class="form-group font-weight-normal" style="font-size: medium;">
       <label for="uname">ID:</label>
       <input type="text" class="form-control" id="mem_Id" placeholder="Enter username" name="mem_Id" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
-    <div class="form-group">
+    <div class="form-group font-weight-normal" style="font-size: medium;">
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" id="mem_Pw" placeholder="Enter password" name="mem_Pw" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
-    <div class="form-group form-check">
+    <div class="form-group form-check font-weight-normal" style="font-size: medium;">
       <label class="form-check-label">
         <input class="form-check-input" type="checkbox" name="remember" required> 로그인 유지
         <div class="valid-feedback">Valid.</div>
@@ -91,70 +97,12 @@ $("#btnLogout").click(function(){
     </div>
     <button type="submit" method="post" class="btn btn-primary btn-block" id="btnLogin" >로그인</button>
   </form>
-  
+       
+     </div>
+  </div>
 </div>
 
-</div>
-<%--   <c:if test="${!empty mvo}">
-로그인이 성공
-<form action = 'Login' name="form2" method="post">
-   <button type="button" id="btnLogout">로그아웃</button>
-</form>
-<c:if test="${mvo.mem_Id=='admin'}">
-<form action="admin" method="get">
-	<button type = "submit" id="admin">관리자 페이지로 이동</button>
-</form>
-</c:if>
-<c:if test="${mvo.mem_Id!='admin'}">
-<form action="resident" method="get">
-	<button type = "submit" id="resident">입주민 페이지로 이동</button>
-</form>
 
-</c:if>
-</c:if> --%>
-  <!-- 헌 디자인  -->
-
-<%-- <form name="form1" method="post">
-<table border="1" style="width: 400px">
-<tr>
- <td>아이디</td>
- <td><input id="memId" name="memId"></td>
-</tr>
-<tr>
- <td>비밀번호</td>
- <td><input type="password" id="memPw" name="memPw"></td>
-</tr>
-<tr>
- <td colspan="2" align="center">
- <button type="button" id="btnLogin">로그인 </button>
-<!--  <button type="button" class="btn btn-default" onclick = "location.href = 'joinForm'">회원가입</button> -->
-</td>
-</tr> 
-</table>
-</form>
-</c:if>
-<c:if test="${!empty mvo}">
-로그인이 성공
-<form action = 'Login' name="form2" method="post">
-   <button type="button" id="btnLogout">로그아웃</button>
-</form>
-<c:if test="${mvo.memId=='admin'}">
-<form action="admin" method="get">
-	<button type = "submit" id="admin">관리자 페이지로 이동</button>
-</form>
-</c:if>
-<c:if test="${mvo.memId!='admin'}">
-<form action="resident" method="get">
-	<button type = "submit" id="resident">입주민 페이지로 이동</button>
-</form>
-
-</c:if>
-</c:if>
- --%>
 </body>
 </html>
-
-
-
-
 

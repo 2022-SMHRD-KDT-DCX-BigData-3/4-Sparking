@@ -19,146 +19,173 @@
   <script type="text/javascript">
   <!-- 회원정보 뿌려주기  -->
   $(document).ready(function(){
-  	$("#tabhome").click(function(){
+     $("#tabhome").click(function(){
        $.ajax({
-    	   url : "infoList",
-    	   type : "get",
-    	   dataType : "json",
-    	   success : listView,
-    	   error : function(){ alert("error");}
+          url : "infoList",
+          type : "get",
+          dataType : "json",
+          success : listView,
+          error : function(){ alert("error");}
        });     
-  	});
-  	
-  	$("#tabmenu1").click(function(){
+     });
+     
+     $("#tabmenu1").click(function(){
         $.ajax({
-     	   url : "updateInfo",
-     	   type : "get",
-     	   dataType : "json",
-     	   success : infoView,
-     	   error : function(){ alert("error");}
+           url : "updateInfo",
+           type : "get",
+           dataType : "json",
+           success : infoView,
+           error : function(){ alert("error");}
         });     
-   	});	
+      });   
   });
-  function yesFn(mem_Id){	 
-	        $.ajax({
-	     	   url : "yesInfo",
-	     	   type : "get",
-	     	   data : {"mem_Id":mem_Id},	     	
-	     	   success : function(){ 
-	     		   location.href="admin";	     		   
-	     	   },
-	     	   error : function(){ alert("error");}
-	        });  
+  function yesFn(mem_Id){    
+           $.ajax({
+              url : "yesInfo",
+              type : "get",
+              data : {"mem_Id":mem_Id},           
+              success : function(){ 
+                 location.href="admin";                 
+              },
+              error : function(){ alert("error");}
+           });  
   }
   
-   function noFn(mem_Id){	 
+   function noFn(mem_Id){    
       $.ajax({
-   	   url : "noInfo",
-   	   type : "get",
-   	   data : {"mem_Id":mem_Id},	     	
-   	   success : function(){ 
-   		   location.href="admin";	     		   
-   	   },
-   	   error : function(){ alert("error");}
+         url : "noInfo",
+         type : "get",
+         data : {"mem_Id":mem_Id},           
+         success : function(){ 
+            location.href="admin";                 
+         },
+         error : function(){ alert("error");}
       });  
 } 
   
   
   
   function infoView(data){
-	  var html="<table class='table table-striped'>";
-	  html+="<thead class='thead-dark'>";
-	  html+="<tr>";
-	  html+="<th>user_id</th>";
-			 	
-				html += "<th>user_pw</th>";
-				html += "<th>in</th>";
-				html += "<th>out</th>";
-				html += "<th>차량 번호</th>";
-				html += "<th>승인</th>";
-				html += "<th>거절</th>";
-				html += "</tr>";
-				html += "</thead>";
-				html += "<tbody>";
-				$.each(data, function(indxe, info) {
-					html += "<tr>";
-					html += "<td>" + info.mem_Id + "</td>";
-					html += "<td>" + info.mem_Pw + "</td>";
-					html += "<td>" + info.p_intime + "</td>";
-					html += "<td>" + info.p_outtime + "</td>";
-					html += "<td>" + info.car_num + "</td>";
-					html += "<td><button onclick='yesFn("+info.mem_Id+")'>승인</button></td>";
-					html += "<td><button onclick='noFn("+info.mem_Id+")'>거절</button></td>";
-					html += "</tr>";
+     var html="<table class='table table-striped'>";
+     html+="<thead class='thead-dark'>";
+     html+="<tr>";
+     html+="<th>user_id</th>";
+             
+            html += "<th>user_pw</th>";
+            html += "<th>in</th>";
+            html += "<th>out</th>";
+            html += "<th>차량 번호</th>";
+            html += "<th>승인</th>";
+            html += "<th>거절</th>";
+            html += "</tr>";
+            html += "</thead>";
+            html += "<tbody>";
+            $.each(data, function(indxe, info) {
+               html += "<tr>";
+               html += "<td>" + info.mem_Id + "</td>";
+               html += "<td>" + info.mem_Pw + "</td>";
+               html += "<td>" + info.p_intime + "</td>";
+               html += "<td>" + info.p_outtime + "</td>";
+               html += "<td>" + info.car_num + "</td>";
+               html += "<td><button onclick='yesFn("+info.mem_Id+")'>승인</button></td>";
+               html += "<td><button onclick='noFn("+info.mem_Id+")'>거절</button></td>";
+               html += "</tr>";
 
-				});
+            });
 
-				html += "</tbody>";
-				html += "</table>";
-				$("#menu1").html(html);
-	}
+            html += "</tbody>";
+            html += "</table>";
+            $("#menu1").html(html);
+   }
   
   function listView(data){
-	  var html="<table class='table table-striped'>";
-	  html+="<thead class='thead-dark'>";
-	  html+="<tr>";
-	  html+="<th>user_id</th>";
-			 	
-				html += "<th>user_pw</th>";
-				html += "<th>dong</th>";
-				html += "<th>ho</th>";
-				html += "<th>in</th>";
-				html += "<th>out</th>";
-				html += "<th>가입여부</th>";
-				html += "<th>전화번호</th>";
-				html += "<th>차량 번호</th>";
-				html += "</tr>";
-				html += "</thead>";
-				html += "<tbody>";
-				$.each(data, function(indxe, info) {
-					html += "<tr>";
-					html += "<td>" + info.mem_Id + "</td>";
-					html += "<td>" + info.mem_Pw + "</td>";
-					html += "<td>" + info.apt_dong + "</td>";
-					html += "<td>" + info.apt_hnum + "</td>";
-		<%-- <td>${fn:substring(info.p_intime,11,16)}</td> --%>
+     var html="<table class='table table-striped'>";
+     html+="<thead class='thead-dark'>";
+     html+="<tr>";
+     html+="<th>user_id</th>";
+             
+            html += "<th>user_pw</th>";
+            html += "<th>dong</th>";
+            html += "<th>ho</th>";
+            html += "<th>in</th>";
+            html += "<th>out</th>";
+            html += "<th>가입여부</th>";
+            html += "<th>전화번호</th>";
+            html += "<th>차량 번호</th>";
+            html += "</tr>";
+            html += "</thead>";
+            html += "<tbody>";
+            $.each(data, function(indxe, info) {
+               html += "<tr>";
+               html += "<td>" + info.mem_Id + "</td>";
+               html += "<td>" + info.mem_Pw + "</td>";
+               html += "<td>" + info.apt_dong + "</td>";
+               html += "<td>" + info.apt_hnum + "</td>";
+      <%-- <td>${fn:substring(info.p_intime,11,16)}</td> --%>
         
-				html += "<td>" + info.p_intime + "</td>";
-					html += "<td>" + info.p_outtime + "</td>";
-					html += "<td>" + info.apt_num + "</td>";
-					html += "<td>" + info.car_num + "</td>";
-					html += "</tr>";
+            html += "<td>" + info.p_intime + "</td>";
+               html += "<td>" + info.p_outtime + "</td>";
+               html += "<td>" + info.apt_num + "</td>";
+               html += "<td>" + info.car_num + "</td>";
+               html += "</tr>";
 
-				});
+            });
 
-				html += "</tbody>";
-				html += "</table>";
-				$("#home").html(html);
+            html += "</tbody>";
+            html += "</table>";
+            $("#home").html(html);
   }
   
   
-  	
+     
 </script>
 </head>
 <body>
 
-<div class="container-fluid col-12">
-  <br>
-  <h3>Sparking</h3>
+<nav class="navbar navbar-expand-sm navbar-light" style="background-color: gold;">
+  <a class="navbar-brand" href="#">
+     <img alt="" src="${pageContext.request.contextPath}/resources/images/sparking_logo.png">
+  </a>
+  <div class="navbar-text collapse navbar-collapse font-weight-bold">
+    <ul class="navbar-nav mr-auto">
+      <c:if test="${mvo.mem_Id=='admin'}">
+      &emsp;
+      <li class="nav-item">   
+        관리자님 어서오세요
+        &emsp;
+      </li>
+      &emsp;
+       </c:if>
+       <c:if test="${mvo.mem_Id !='admin'}">
+     <li>ooo님 어서요세요</li>
+     </c:if>
+     <li class="nav-item">
+       <a href="resident">동 페이지</a>
+     </li>
+    </ul>
+    <span class="navbar-text font-weight-bold">
+      &emsp;
+      <a href="#">로그아웃</a>
+    </span>
+    &emsp;&emsp;&emsp;
+  </div>
+</nav>
+
+<div class="bn_img" style="max-height: 520px; overflow: hidden;">
+  <img src="${pageContext.request.contextPath}/resources/images/bn5.jpg" class="img w-100" alt="Sparking"
+   style="width: 100%;max-height: initial; position:relative;">
+</div>
+<div class="title p-2 " style="left: 150px; width: 600px; bottom: 270px; font-size: 1.8em; font-weight: bold; position: absolute;">
+     <h3 style="color: orange;"><strong>SMART PARKING</strong></h3>
+     <h2 style="color: gray;"><strong>우리는 편리하고 편안한 주차를 꿈꿉니다</strong></h2>
 </div>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top col-12">
-  <a class="navbar-brand" href="#">Logo</a>
-  <span class="navbar-text justify-content-end">
-    Navbar text
-  </span>
-</nav>
 <br>
 <br>
 
 <div class="col-sm-1 col-md-1 col-lg-2"></div>
 <div class="container mt-3 col-sm-10 col-md-10 col-lg-8">
-  <h2>Toggleable Tabs</h2>
+  <h2 style="text-align: center;">관리자 페이지</h2>
   <br>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs">
@@ -415,7 +442,7 @@
 const join = document.getElementById("join")
 const formTag = document.getElementById("formTag")
 join.addEventListener("click", ()=>{
-	formTag.submit();
+   formTag.submit();
 }
 )
 </script>

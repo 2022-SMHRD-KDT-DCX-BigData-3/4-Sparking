@@ -19,8 +19,8 @@
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type="text/javascript">
   
-	$(document).ready(function() {
-		  $('.btnAdd').click (function () {                                        
+   $(document).ready(function() {
+        $('.btnAdd').click (function () {                                        
               $('.buttons').append (                        
                   '<input type="text" name="txt"> <input type="button" class="btnRemove" value="Remove"><br>'                    
               ); // end append                            
@@ -30,29 +30,52 @@
                   $(this).remove (); // remove the button
               });
           }); // end click   
-	});
+   });
   
   </script>
   
 </head>
-<body style="height:1500px">
+<body>
 
-<div class="container-fluid">
-  <br>
-  <h3>Sparking</h3>
+<nav class="navbar navbar-expand-sm navbar-light" style="background-color: gold;">
+  <a class="navbar-brand" href="#">
+     <img alt="" src="${pageContext.request.contextPath}/resources/images/sparking_logo.png">
+  </a>
+  <div class="navbar-text collapse navbar-collapse font-weight-bold">
+    <ul class="navbar-nav mr-auto">
+      <c:if test="${mvo.mem_Id=='admin'}">
+      &emsp;
+      <li class="nav-item">   
+        관리자님 어서오세요
+        &emsp;
+       <a href="admin">관리자 페이지</a>
+      </li>
+      &emsp;
+       </c:if>
+       <c:if test="${mvo.mem_Id !='admin'}">
+     <li>ooo님 어서요세요</li>
+     </c:if>
+    </ul>
+    <span class="navbar-text font-weight-bold">
+      <a href="#myModal" data-toggle="modal">회원정보 수정</a>
+      &emsp;
+      <a href="#">로그아웃</a>
+    </span>
+    &emsp;&emsp;&emsp;
+  </div>
+</nav>
+
+
+
+<div class="bn_img" style="max-height: 250px; overflow: hidden;">
+  <img src="${pageContext.request.contextPath}/resources/images/bn4.png" class="img w-100" alt="Sparking"
+   style="width: 100%;max-height: initial; position:relative;">
+</div>
+<div class="title p-2 " style="left: 220px; width: 600px; bottom: 550px; font-size: 1.8em; font-weight: bold; position: absolute;">
+     <h3 style="color: orange;"><strong>SMART PARKING</strong></h3>
+     <h2 style="color: white;"><strong>우리는 편리하고 편안한 주차를 꿈꿉니다</strong></h2>
 </div>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top ">
-  <a class="navbar-brand" href="#">Logo</a>
-  <span class="navbar-text justify-content-end">
-  <c:if test="${mvo.mem_Id=='admin'}">
-    <a href="admin">관리자 페이지</a>
-  </c:if>
-    &emsp;
-    <a href="#myModal" data-toggle="modal">회원정보 수정</a>
-
-  </span>  
-</nav>
 
 <!-- 회원정보 수정페이지 시작  -->
   <!-- The Modal -->
@@ -93,13 +116,7 @@
            *비밀번호<input type="password" value="${mvo.mem_Pw}" name="mem_Pw"/>
           </div>
           
-          <%-- <div class="p-2">
-           *전화번호<input type="id" value = "${mvo.mem_Id}" name="mem_Id"/>
-          </div> --%>
-          
           *차량번호
-           <!-- <button type="button" id="addButton" class="btn-primary">추가</button>
-           <button type="button" id="rmvButton" class="btn-primary">삭제</button> -->
           <div id="add" class="p-2">
            <input type="text" value="${mvo.car_num}" name="car_num"/>
           </div>
@@ -143,70 +160,71 @@
 <form action="/dongParking" method = "get">
 <div class="container">
   <div class="card-columns">
-    <div class="card bg-light">
- 		<%-- <c:forEach var="i" begin = "0" end = "6"> --%>
- 			
+    <div class="card bg-warning">
+       <%-- <c:forEach var="i" begin = "0" end = "6"> --%>
+          
         <div class="card-body text-center">
            <p class="card-text"><a href="parking?apt_dong=101" id="subpa" class="text-body" onclick="subpa()"><h3>101동</h3></a></p>
+           
            <script type="text/javascript">
            subpa(){
-        	   document.getElementById('subpa').submit();
+              document.getElementById('subpa').submit();
            }
            </script>
          </div>
       </a>
     </div>
-    <div class="card bg-light">
+    <div class="card bg-danger">
       <div class="card-body text-center">
         <p class="card-text"><a href="parking?apt_dong=102" id ="subpb" class="text-body" onclick="subpb"><h3>102동</h3></a></p>
-			<script type="text/javascript">
-			subpb(){
-				document.getElementById('subpb').submit();
-			}
-			</script>      
+         <script type="text/javascript">
+         subpb(){
+            document.getElementById('subpb').submit();
+         }
+         </script>      
       </div>
     </div>
-    <div class="card bg-light">
+    <div class="card bg-danger">
       <div class="card-body text-center">
         <p class="card-text"><a href="parking?apt_dong=103" id = "subpc" class="text-body" onclick="subpc"><h3>103동</h3></a></p>
-      		<script type="text/javascript">
-				subpc(){
-					document.getElementById('subpc').submit();
-				}      		
-      		</script>
+            <script type="text/javascript">
+            subpc(){
+               document.getElementById('subpc').submit();
+            }            
+            </script>
       </div>
     </div>
-    <div class="card bg-light">
+    <div class="card bg-success">
       <div class="card-body text-center">
         <p class="card-text"><a href="parking?apt_dong=104" id = "subpd" class="text-body" onclick="subpd"><h3>104동</h3></a></p>
-      		<script type="text/javascript">
-      			subpd(){
-      				document.getElementById('subpd').submit();
-      			}
-      		
-      		</script>
+            <script type="text/javascript">
+               subpd(){
+                  document.getElementById('subpd').submit();
+               }
+            
+            </script>
       </div>
     </div>  
-    <div class="card bg-light">
+    <div class="card bg-warning">
       <div class="card-body text-center">
         <p class="card-text"><a href="parking?apt_dong=105" id = "subpe" class="text-body" onclick="subpe"><h3>105동</h3></a></p>
-      		<script type="text/javascript">
-      			subpe(){
-      				document.getElementById('subpe').submit();
-      			}
-      		
-      		</script>
+            <script type="text/javascript">
+               subpe(){
+                  document.getElementById('subpe').submit();
+               }
+            
+            </script>
       </div>
     </div>
-    <div class="card bg-light">
+    <div class="card bg-success">
       <div class="card-body text-center">
         <p class="card-text"><a href="parking?apt_dong=106" id="subpf" class="text-body" onclick="subpf"><h3>106동</h3></a></p>
-     		<script type="text/javascript">
-     			subpf(){
-     				
-     				document.getElementById('subpf').submit();
-     			}
-     		</script>
+           <script type="text/javascript">
+              subpf(){
+                 
+                 document.getElementById('subpf').submit();
+              }
+           </script>
      
       </div>
     </div>

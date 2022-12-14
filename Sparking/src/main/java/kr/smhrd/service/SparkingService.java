@@ -115,6 +115,10 @@ public class SparkingService {
     public Parking dong_state() {
     	return  Sparkingmapper.dongState(0);
     }
+
+
+
+	
     
     
     
