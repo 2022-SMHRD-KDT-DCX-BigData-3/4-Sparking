@@ -102,12 +102,7 @@ public class SparkingService {
 		 
 		  Sparkingmapper.noDeleteInfo(mem_Id);
 	 }  
-    
-    public Parking flask() {
-    	return Sparkingmapper.flask();
-		
-    }
-    
+       
     public List<Parking> getAptDong(String apt_dong){
     	return Sparkingmapper.getAptDong(apt_dong);
     }
@@ -116,11 +111,5 @@ public class SparkingService {
     	return  Sparkingmapper.dongState(0);
     }
 
-
-
-	
-    
-    
-    
     
 }

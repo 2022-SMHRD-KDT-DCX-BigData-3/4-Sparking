@@ -1,6 +1,11 @@
+<%@page import="com.mysql.fabric.xmlrpc.base.Array"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@ page import="kr.smhrd.entity.Parking" %>
+<%@ page import="org.springframework.ui.Model"%>
+  
 <c:set var="cpath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,18 +18,17 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript"></script>
+<!-- <META HTTP-EQUIV="refresh" CONTENT="3"> -->
 <style>
-table.card{
-	width: 150px;
+.card{
+	width: 205px;
 	height: 200px;
 	border: 1px solid #ccc;
 	bgcolor: black;
 }
-
 </style>
 </head>
 <body> 
-
 
 
 <nav class="navbar navbar-expand-sm navbar-light" style="background-color: gold;">
@@ -66,72 +70,40 @@ table.card{
      <h3 style="color: gold;"><strong>SMART PARKING</strong></h3>
      <h2 style="color: gold;"><strong>우리는 편리하고 편안한 주차를 꿈꿉니다</strong></h2>
 </div>
-
-${parking}
- 
+<%-- ${list} --%>
 <div class="container">
 <br>
   <h2 style="text-align: center;"><%=request.getParameter("apt_dong") %>동 주차 현황</h2>
   <br><br>
-  <div class="card-group">  
- 	<c:forEach var = "i" begin = "0" end = "19">
- 		<table class = "card" id = "i" name = "parkingLine">
- 			<tr>
- 				<th scope="row"></th>
- 			</tr>
- 			<br><br>
- 			
- 		</table>
-   <c:forEach var="vo" items="${list}" varStatus="status">
-    <c:if test="${status.index<10}">
-    <div class="card ${vo.DVC_STATE==1 ? 'bg-success'  : 'bg-danger'}">
-      <div class="card-body text-center">    
-            <br>
-            <br>
-          <p class="card-text">${vo.DVC_STATE==1 ? '빈상태'  : '주차중'}</p>        
-             <br>
-             <br>
-      </div>
-    </div>   
-    </c:if> 
-   </c:forEach>
-   </c:forEach> 
-   </div>
-   <br/>
-   <div class="card-group"> 
-    <c:forEach var="vo" items="${list}" varStatus="status">
-    <c:if test="${status.index>=10}">
-    <div class="card ${vo.DVC_STATE==1 ? 'bg-success'  : 'bg-danger'}">
-      <div class="card-body text-center">    
-            <br>
-            <br>
-          <p class="card-text">${vo.DVC_STATE==1 ? '빈상태'  : '주차중'}</p>        
-             <br>
-             <br>
-      </div>
-    </div>   
-    </c:if>  
- </c:forEach>
-  </div>
-  
-  <br><br><br><br>
-  
-  <%-- <div class="card-group">
-    <c:forEach var = "i" begin = "11" end = "21">
-       
-    <div class="card ${vo.DVC_STATE==1 ? 'bg-success'  : 'bg-danger'}">
-      <div class="card-body text-center">    
-            <br>
-            <br>
-          <p class="card-text">${vo.DVC_STATE==1 ? '빈상태'  : '주차중'}</p>        
-             <br>
-             <br>
-      </div>
-    </div>
-   </c:forEach>
- </c:forEach> --%>
+   <div class="card-group">  
+   	<c:forEach var="i" begin="1" end="10" step="1" varStatus="ro" >
+   	<c:set var="temp" value="0" />
+		<c:forEach var="j" begin="0" end="10" step="1">
+				<c:if test="${list[j].DVC_NUM == i}">
+					<div class="card-body text-center bg-danger">
+	  				<p class="card-text">${i } 번 자리</p>
+		  			<p class="card-text">주차중</p>
+			  		<%-- <p class="card-text">${list[j].CAR_NUM }</p> --%>
+	  				</div>
+	  				<c:set var="temp" value="1" />
+		   		</c:if>
+		   		
+   		</c:forEach>
+   				<c:if test="${temp==0 }">
+	  				<div class="card-body text-center bg-success">
+		  				<p class="card-text">${i } 번 자리</p>
+			  			<p class="card-text">주차 가능</p>
+		  			</div>
+	  			</c:if>
+   	</c:forEach>
   </div>  
- 
+  
+	<%-- 
+	<c:forEach var="PI" items="${list}" varStatus="stat">
+		기기번호 :${PI.DVC_NUM}<br>
+		
+	</c:forEach>
+	 --%>
 
 </body>
 </html>

@@ -23,9 +23,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
+import java.util.Collections;
 import kr.smhrd.entity.Member;
 import kr.smhrd.entity.Parking;
 import kr.smhrd.mapper.SparkingMapper;
@@ -123,6 +124,8 @@ public class HomeController {
 							// 받을거니까 parking으로 적어줘야 함.
 	public String parking(String apt_dong, Model model) {
 		List<Parking> list=sparkingService.getAptDong(apt_dong);
+		//System.out.println("리스트:"+list);
+		//System.out.println("리스트아파트:"+apt_dong);
 		model.addAttribute("list",list);
 		return "parking";
 	}
@@ -180,49 +183,7 @@ public class HomeController {
 		sparkingService.noDeleteInfo(mem_Id);
 		return "admin";
 	}
-
-	// flask 연동
-
-	@GetMapping("/dongParking")
-	public String Test(HttpSession session, Model model) {
-		ModelAndView mav = new ModelAndView();
-		Parking pvo = sparkingService.flask();
-		model.addAttribute("pvo", pvo);
-		
-		  String url = "http://127.0.0.1:5000/tospring"; String sb = ""; try {
-		  HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
-		  
-		  BufferedReader br = new BufferedReader(new
-		  InputStreamReader(conn.getInputStream(), "utf-8"));
-		  
-		  String line = null;
-		  
-		  //값을 읽어오는 코드
-		  while ((line = br.readLine()) != null) { sb = sb + line + "\n"; }
-		  System.out.println("========br======" + sb.toString()); if
-		  (sb.toString().contains("ok")) { System.out.println("test");
-		  
-		  } br.close();
-		  
-		  System.out.println("" + sb.toString()); } catch (MalformedURLException e) {
-		  e.printStackTrace(); } catch (IOException e) { e.printStackTrace(); }
-		  mav.addObject("parking", sb.toString()); // "test1"는 jsp파일에서 받을때 이름, 
-		  //sb.toString은 value값(여기에선 test) 
-		  mav.addObject("fail", false);
-		  mav.setViewName("parking"); // jsp파일 이름
-		 		
-		return "parking";
-
-	}
-	
-	// 동별 색깔 표시
-	/*
-	 * @GetMapping("resident") public int dongState() {
-	 * sparkingService.dong_state(dvc_num); return resident;
-	 * 
-	 * }
-	 */
-	
-	
-
 }
+
+
+

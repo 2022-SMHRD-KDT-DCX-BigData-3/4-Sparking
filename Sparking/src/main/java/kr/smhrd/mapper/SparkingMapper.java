@@ -51,14 +51,11 @@ public interface SparkingMapper {
 	   // 회원정보 수정 거절시
 	   public void noDeleteInfo(String mem_Id);
 	   
-	   
-	   // spring flask 연동
-	   public Parking flask(); 
-	   
+	  
 	   public List<Parking> getAptDong(String apt_dong);
 
 	   // 동별 색깔 표시
-	   public Parking dongState(int dvc_num);
+	   public Parking dongState(int apt_dong);
 
 	   
 

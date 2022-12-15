@@ -120,8 +120,12 @@ select mem_Id,mem_Pw,
 	</select>
 	
 	<select id="getAptDong" resultType="kr.smhrd.entity.Parking">
-	select * from Parking_Info where apt_dong = #{apt_dong}
+	select dvc_num,dvc_state,car_num from Parking_Info where apt_dong = #{apt_dong} order by DVC_NUM 
 	</select>	
+	
+	<select id="parking_info" resultType="kr.smhrd.entity.Parking">
+		select * from Parking_Info where apt_dong = #{apt_dong}
+	</select>
 		
 </mapper>
 
