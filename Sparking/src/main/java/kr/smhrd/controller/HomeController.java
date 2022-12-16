@@ -95,9 +95,13 @@ public class HomeController {
 	public String resident(HttpSession session, Model model) {
 		Member vo = (Member) session.getAttribute("mvo");
 		Member mvo = sparkingService.getMember(vo.getMem_Id());
+		
+		List<?> dong_info = sparkingService.getDong_info();
+		model.addAttribute("dong_info",dong_info);
 		session.setAttribute("mvo", mvo);
 		return "resident";
 	}
+	
 
 	@GetMapping("/infoList") // 새로고침 하여 회원정보 등록한 입주민들을 화면 변화 없이 업데이트
 	public @ResponseBody List<Member> infoList() {
@@ -123,7 +127,7 @@ public class HomeController {
 	@GetMapping("/parking") // a태그로 받은 것은 getmapping 해주기, resident.jsp 파일에서 a태그에 있는 parking으로 getmapping을
 							// 받을거니까 parking으로 적어줘야 함.
 	public String parking(String apt_dong, Model model) {
-		List<Parking> list=sparkingService.getAptDong(apt_dong);
+		List<Parking> list=sparkingService.getParking_info(apt_dong);
 		//System.out.println("리스트:"+list);
 		//System.out.println("리스트아파트:"+apt_dong);
 		model.addAttribute("list",list);

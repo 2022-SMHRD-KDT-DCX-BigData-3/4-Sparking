@@ -6,6 +6,7 @@
 <%@ page import="kr.smhrd.entity.Parking" %>
 <%@ page import="org.springframework.ui.Model"%>
   
+  
 <c:set var="cpath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +19,7 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript"></script>
-<!-- <META HTTP-EQUIV="refresh" CONTENT="3"> -->
+<META HTTP-EQUIV="refresh" CONTENT="5">
 <style>
 .card{
 	width: 205px;
@@ -75,7 +76,7 @@
 <br>
   <h2 style="text-align: center;"><%=request.getParameter("apt_dong") %>동 주차 현황</h2>
   <br><br>
-   <div class="card-group">  
+   <div class="card-group" id="pl">  
    	<c:forEach var="i" begin="1" end="10" step="1" varStatus="ro" >
    	<c:set var="temp" value="0" />
 		<c:forEach var="j" begin="0" end="10" step="1">
@@ -104,6 +105,7 @@
 		
 	</c:forEach>
 	 --%>
+
 
 </body>
 </html>

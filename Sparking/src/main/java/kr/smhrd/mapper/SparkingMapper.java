@@ -52,11 +52,11 @@ public interface SparkingMapper {
 	   public void noDeleteInfo(String mem_Id);
 	   
 	  
-	   public List<Parking> getAptDong(String apt_dong);
+	   public List<Parking> getParking_info(String apt_dong);
 
 	   // 동별 색깔 표시
-	   public Parking dongState(int apt_dong);
-
+	   public List<?> getDong_info();
+	   
 	   
 
 }

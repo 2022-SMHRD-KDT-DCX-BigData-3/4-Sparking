@@ -19,6 +19,7 @@ public class SparkingService {
 	public Member login(Member vo) {
 		return Sparkingmapper.login(vo);
 	}
+	
 
 	// 회원가입
 	public void join(Member vo) {
@@ -103,13 +104,14 @@ public class SparkingService {
 		  Sparkingmapper.noDeleteInfo(mem_Id);
 	 }  
        
-    public List<Parking> getAptDong(String apt_dong){
-    	return Sparkingmapper.getAptDong(apt_dong);
+    public List<Parking> getParking_info(String apt_dong){
+    	return Sparkingmapper.getParking_info(apt_dong);
     }
     
-    public Parking dong_state() {
-    	return  Sparkingmapper.dongState(0);
-    }
+	public List<?> getDong_info() {
+		return Sparkingmapper.getDong_info();
+	
+	}
 
     
 }
