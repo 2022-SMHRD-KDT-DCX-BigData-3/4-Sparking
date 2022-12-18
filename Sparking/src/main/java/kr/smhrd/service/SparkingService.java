@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.smhrd.entity.Dong;
 import kr.smhrd.entity.Member;
 import kr.smhrd.entity.Parking;
 import kr.smhrd.mapper.SparkingMapper;
@@ -108,7 +109,7 @@ public class SparkingService {
     	return Sparkingmapper.getParking_info(apt_dong);
     }
     
-	public List<?> getDong_info() {
+	public List<Dong> getDong_info() {
 		return Sparkingmapper.getDong_info();
 	
 	}

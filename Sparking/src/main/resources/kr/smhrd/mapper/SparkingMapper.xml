@@ -123,8 +123,8 @@ select mem_Id,mem_Pw,
 	select dvc_num,dvc_state,car_num from Parking_Info where apt_dong = #{apt_dong} order by DVC_NUM 
 	</select>	
 	
-	<select id="getDong_info" resultType="arraylist">
-		select apt_dong,count(dvc_num) from Parking_Info group by apt_dong
+	<select id="getDong_info" resultType="kr.smhrd.entity.Dong">
+		select apt_dong,count(dvc_num) as cnt from Parking_Info group by apt_dong order by apt_dong
 	</select>
 		
 </mapper>

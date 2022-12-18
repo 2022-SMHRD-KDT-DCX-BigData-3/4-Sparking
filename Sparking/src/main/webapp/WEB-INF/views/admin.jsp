@@ -7,15 +7,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>동 선택 페이지</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="${pageContext.request.contextPath}/resources/assets/css/styles.css" rel="stylesheet"/>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  <script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type="text/javascript">
   <!-- 회원정보 뿌려주기  -->
   $(document).ready(function(){
@@ -109,7 +117,6 @@
             html += "<th>ho</th>";
             html += "<th>in</th>";
             html += "<th>out</th>";
-            html += "<th>가입여부</th>";
             html += "<th>전화번호</th>";
             html += "<th>차량 번호</th>";
             html += "</tr>";
@@ -140,53 +147,47 @@
      
 </script>
 </head>
-<body>
+<body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav" >
+            <div class="container">
+                <a class="navbar-brand" href="#page-top">
+                <h1>Sparking</h1>
+                </a>
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="resident">동 선택</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">로그아웃</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center" 
+        style="background-image: url('${pageContext.request.contextPath}/resources/images/bn5.jpg'); 
+        background-repeat: no-repeat; background-size : cover; height: 500px;">
+            <div class="container d-flex align-items-center flex-column">
 
-<nav class="navbar navbar-expand-sm navbar-light" style="background-color: gold;">
-  <a class="navbar-brand" href="#">
-     <img alt="" src="${pageContext.request.contextPath}/resources/images/sparking_logo.png">
-  </a>
-  <div class="navbar-text collapse navbar-collapse font-weight-bold">
-    <ul class="navbar-nav mr-auto">
-      <c:if test="${mvo.mem_Id=='admin'}">
-      &emsp;
-      <li class="nav-item">   
-        관리자님 어서오세요
-        &emsp;
-      </li>
-      &emsp;
-       </c:if>
-       <c:if test="${mvo.mem_Id !='admin'}">
-     <li>ooo님 어서요세요</li>
-     </c:if>
-     <li class="nav-item">
-       <a href="resident">동 페이지</a>
-     </li>
-    </ul>
-    <span class="navbar-text font-weight-bold">
-      &emsp;
-      <a href="#">로그아웃</a>
-    </span>
-    &emsp;&emsp;&emsp;
-  </div>
-</nav>
-
-<div class="bn_img" style="max-height: 520px; overflow: hidden;">
-  <img src="${pageContext.request.contextPath}/resources/images/bn5.jpg" class="img w-100" alt="Sparking"
-   style="width: 100%;max-height: initial; position:relative;">
-</div>
-<div class="title p-2 " style="left: 150px; width: 600px; bottom: 270px; font-size: 1.8em; font-weight: bold; position: absolute;">
-     <h3 style="color: orange;"><strong>SMART PARKING</strong></h3>
-     <h2 style="color: gray;"><strong>우리는 편리하고 편안한 주차를 꿈꿉니다</strong></h2>
-</div>
+            </div>
+        </header>
 
 <br>
 <br>
 
 <div class="col-sm-1 col-md-1 col-lg-2"></div>
 <div class="container mt-3 col-sm-10 col-md-10 col-lg-8">
-  <h2 style="text-align: center;">관리자 페이지</h2>
-  <br>
+  <!-- Portfolio Section Heading-->
+  <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">관리자 페이지</h2>
+  <div class="divider-custom">
+     <div class="divider-custom-line"></div>
+     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+     <div class="divider-custom-line"></div>
+  </div>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs">
     <li class="nav-item">
@@ -204,19 +205,18 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div id="home" class="container tab-pane active"><br>
-    
+    <div class=”table-responsive“>
     <table class=" table table-striped">
        <thead class="thead-dark ">
          <tr>
-         <th>user_id</th>
-         <th>user_pw</th>
-         <th>dong</th>
-         <th>ho</th>
-         <th>in</th>
-         <th>out</th>
-         <th>가입여부</th>
+         <th>아이디</th>
+         <th>비밀번호</th>
+         <th>동</th>
+         <th>호</th>
+         <th>주차</th>
+         <th>출차</th>
          <!-- <th>전화번호</th> -->
-         <th>차량 번호</th>
+         <th>차량번호</th>
          </tr>
        </thead>
        <tbody>
@@ -229,13 +229,13 @@
             <%-- <td>${fn:substring(info.p_intime,11,16)}</td> --%>
             <td>${info.p_intime}</td>
             <td>${info.p_outtime}</td>
-            <td>${info.apt_num}</td>
             <td>${info.car_num}</td>
          </tr>
          </c:forEach>
          
        </tbody>
      </table>
+     </div>
     <br>
     
     
@@ -389,7 +389,8 @@
       
     </div>
     <div id="menu2" class="container tab-pane fade"><br>
-      <table class=" table table-striped">
+    <div class=”table-responsive“>
+    <table class=" table table-striped">
     <thead class="thead-dark ">
       <tr>
         <th>차량번호</th>
@@ -413,6 +414,7 @@
       </tr>
      </tbody>
      </table>
+     </div>
      <br><br>
      <nav aria-label="Page navigation example">
      <ul class="pagination">

@@ -13,16 +13,5 @@ public class Parking {
 	private String CAR_NUM;
 	private String IN_TIME;
 	private String OUT_TIME; 
-
-
-
-
-
-
-	
-	
-	
-	
-	
 	
 }

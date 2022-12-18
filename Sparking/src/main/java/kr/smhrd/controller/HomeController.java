@@ -27,6 +27,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.Collections;
+
+import kr.smhrd.entity.Dong;
 import kr.smhrd.entity.Member;
 import kr.smhrd.entity.Parking;
 import kr.smhrd.mapper.SparkingMapper;
@@ -53,10 +55,10 @@ public class HomeController {
 			session.setAttribute("mvo", mvo); // JSP -> ${empty mvo}
 			System.out.println(mvo);
 			session.setAttribute("message", "login");
-			return "resident";
+			return "redirect:/resident";
 		} else {
 			session.setAttribute("message", "error");
-			return "Login";
+			return "redirect:/";
 		}
 
 	}
@@ -96,7 +98,8 @@ public class HomeController {
 		Member vo = (Member) session.getAttribute("mvo");
 		Member mvo = sparkingService.getMember(vo.getMem_Id());
 		
-		List<?> dong_info = sparkingService.getDong_info();
+		List<Dong> dong_info = sparkingService.getDong_info();
+		System.out.println(dong_info);
 		model.addAttribute("dong_info",dong_info);
 		session.setAttribute("mvo", mvo);
 		return "resident";

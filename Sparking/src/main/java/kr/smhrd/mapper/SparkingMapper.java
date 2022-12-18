@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.smhrd.entity.Dong;
 import kr.smhrd.entity.Member;
 import kr.smhrd.entity.Parking;
 import kr.smhrd.service.SparkingService;
@@ -55,9 +56,7 @@ public interface SparkingMapper {
 	   public List<Parking> getParking_info(String apt_dong);
 
 	   // 동별 색깔 표시
-	   public List<?> getDong_info();
+	   public List<Dong> getDong_info();
 	   
-	   
-
 }
  
