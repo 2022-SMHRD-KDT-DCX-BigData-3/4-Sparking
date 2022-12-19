@@ -1,0 +1,12 @@
+names:
+- LP
+nc: 1
+roboflow:
+  license: CC BY 4.0
+  project: sp_yolov7
+  url: https://universe.roboflow.com/project-9u5sk/sp_yolov7/dataset/2
+  version: 2
+  workspace: project-9u5sk
+test: ./dataset/test.txt
+train: ./dataset/train.txt
+val: ./dataset/valid.txt
